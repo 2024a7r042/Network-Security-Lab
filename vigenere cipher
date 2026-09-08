@@ -1,0 +1,16 @@
+text = input("Enter text: ")
+key = input("Enter key: ")
+
+def encrypt(text, key):
+    result = ""
+    key = key.upper()
+
+    for i in range(len(text)):
+        p = ord(text[i].upper()) - 65
+        k = ord(key[i % len(key)]) - 65
+
+        c = (p + k) % 26
+        result += chr(c + 65)
+
+    return result
+print("Encrypted text:", encrypt(text, key))
